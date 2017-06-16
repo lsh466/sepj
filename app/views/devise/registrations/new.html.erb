@@ -1,0 +1,51 @@
+<section style="height: 100%; background-image: url('https://hd.unsplash.com/photo-1472437774355-71ab6752b434'); background-size: cover; background-position: center">
+<div class="container">
+  <div class="well" style="background:#7f7f7f; background:rgba(255,255,255,0.5);">
+      <center>
+        <h2>회원가입</h2>
+        
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+        
+          <div class="field">
+            <%= f.label :이메일 %><br />
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+          
+          <div class="field">
+            <%= f.label :이름 %><br />
+            <%= f.text_field :name, autofocus: true %>
+          </div>
+          
+          <div class="field">
+            <%= f.label :전공 %><br />
+            <%= f.text_field :major, autofocus: true %>
+          </div>
+          
+          <div class="field">
+            <%= f.label :닉네임 %><br />
+            <%= f.text_field :nickname, autofocus: true %>
+          </div>
+        
+          <div class="field">
+            <%= f.label :비밀번호 %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 최소 6자리)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+        
+          <div class="field">
+            <%= f.label :비밀번호_확인 %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+        
+          <div class="actions">
+            <%= f.submit "가입하기" %>
+          </div>
+        <% end %>
+        
+        <%= render "devise/shared/links" %>
+    </div>  
+  </div>    
+</section>
